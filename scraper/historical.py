@@ -62,6 +62,7 @@ def scrape_historical(
     *,
     team_aliases: dict[str, str] | None = None,
     league_code: str | None = None,
+    season_label: str | None = None,
 ) -> Iterable[MatchEventRow]:
     """
     Downloads historical match data from football-data.co.uk for a league + season.
@@ -86,6 +87,7 @@ def scrape_historical(
     reader = csv.DictReader(io.StringIO(text))
 
     rows: List[MatchEventRow] = []
+    season_out = season_label or season
     for r in reader:
         home_raw = _pick(r, ["HomeTeam", "Home", "Home Team"])
         away_raw = _pick(r, ["AwayTeam", "Away", "Away Team"])
@@ -108,7 +110,7 @@ def scrape_historical(
         rows.append(
             MatchEventRow(
                 league=league_name,
-                season=season,
+                season=season_out,
                 date=iso_date or _date.today().isoformat(),
                 home_team=home,
                 away_team=away,

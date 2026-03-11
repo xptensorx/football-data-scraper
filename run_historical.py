@@ -51,6 +51,32 @@ def _resolve_seasons(seasons_cfg: object) -> list[str]:
     return _resolve_seasons({"mode": "current_and_previous", "count": 2})
 
 
+def _season_id_to_label(season_id: str) -> str:
+    """
+    Convert football-data season IDs to a readable label.
+
+    Examples:
+    - "2526" -> "2025-2026"
+    - "2324" -> "2023-2024"
+    - "2021" -> "2020-2021" (older football-data folders)
+    """
+    s = (season_id or "").strip()
+    if len(s) != 4 or not s.isdigit():
+        return s
+
+    year_guess = int(s)
+    if s.startswith(("19", "20")) and 1900 <= year_guess <= 2099:
+        end_year = year_guess
+        start_year = end_year - 1
+        return f"{start_year}-{end_year}"
+
+    start_yy = int(s[:2])
+    end_yy = int(s[2:])
+    start_year = 2000 + start_yy if start_yy < 50 else 1900 + start_yy
+    end_year = 2000 + end_yy if end_yy < 50 else 1900 + end_yy
+    return f"{start_year}-{end_year}"
+
+
 def main() -> None:
     base_dir = Path(__file__).resolve().parent
     cfg_path = base_dir / "config" / "default.json"
@@ -68,7 +94,13 @@ def main() -> None:
         league_name = league["name"]
         league_code = league.get("football_data_code") or league.get("code")
         for season in seasons:
-            rows = scrape_historical(league_name, season, league_code=league_code)
+            season_label = _season_id_to_label(season)
+            rows = scrape_historical(
+                league_name,
+                season,
+                season_label=season_label,
+                league_code=league_code,
+            )
             written_total += write_rows_csv(out_path, rows, append=append)
             if rate_limit_seconds > 0:
                 time.sleep(rate_limit_seconds)
