@@ -1,0 +1,16 @@
+league,season,date,home_team,away_team,venue,home_score,away_score,round,referee,attendance,event_type,event_time,player
+Premier League,CURRENT,2000-01-01,Historical Home,Historical Away,,1,0,,,,goal,12,Example Scorer
+Premier League,PREVIOUS,2000-01-01,Historical Home,Historical Away,,1,0,,,,goal,12,Example Scorer
+La Liga,CURRENT,2000-01-01,Historical Home,Historical Away,,1,0,,,,goal,12,Example Scorer
+La Liga,PREVIOUS,2000-01-01,Historical Home,Historical Away,,1,0,,,,goal,12,Example Scorer
+Serie A,CURRENT,2000-01-01,Historical Home,Historical Away,,1,0,,,,goal,12,Example Scorer
+Serie A,PREVIOUS,2000-01-01,Historical Home,Historical Away,,1,0,,,,goal,12,Example Scorer
+Championship,CURRENT,2000-01-01,Historical Home,Historical Away,,1,0,,,,goal,12,Example Scorer
+Championship,PREVIOUS,2000-01-01,Historical Home,Historical Away,,1,0,,,,goal,12,Example Scorer
+Bundesliga,CURRENT,2000-01-01,Historical Home,Historical Away,,1,0,,,,goal,12,Example Scorer
+Bundesliga,PREVIOUS,2000-01-01,Historical Home,Historical Away,,1,0,,,,goal,12,Example Scorer
+Premier League,CURRENT,2026-03-11,Home FC,Away FC,,0,0,,,,,,
+La Liga,CURRENT,2026-03-11,Home FC,Away FC,,0,0,,,,,,
+Serie A,CURRENT,2026-03-11,Home FC,Away FC,,0,0,,,,,,
+Championship,CURRENT,2026-03-11,Home FC,Away FC,,0,0,,,,,,
+Bundesliga,CURRENT,2026-03-11,Home FC,Away FC,,0,0,,,,,,
