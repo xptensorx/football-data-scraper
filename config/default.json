@@ -3,14 +3,14 @@
   "append": true,
   "rate_limit_seconds": 1.0,
   "leagues": [
-    { "name": "Premier League", "country": "England", "tier": 1 },
-    { "name": "La Liga", "country": "Spain", "tier": 1 },
-    { "name": "Serie A", "country": "Italy", "tier": 1 },
-    { "name": "Championship", "country": "England", "tier": 2 },
-    { "name": "Bundesliga", "country": "Germany", "tier": 1 }
+    { "name": "Premier League", "country": "England", "tier": 1, "football_data_code": "E0" },
+    { "name": "La Liga", "country": "Spain", "tier": 1, "football_data_code": "SP1" },
+    { "name": "Serie A", "country": "Italy", "tier": 1, "football_data_code": "I1" },
+    { "name": "Championship", "country": "England", "tier": 2, "football_data_code": "E1" },
+    { "name": "Bundesliga", "country": "Germany", "tier": 1, "football_data_code": "D1" }
   ],
   "seasons": {
     "mode": "current_and_previous",
-    "count": 2
+    "count": 1
   }
 }
